@@ -11,6 +11,9 @@ User = get_user_model()
 
 class LoginView(APIView):
 
+    def get(self, request, format=None):
+        return render(request, 'login.html')
+
     def post(self, request, format=None):
         serializer = LoginSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
